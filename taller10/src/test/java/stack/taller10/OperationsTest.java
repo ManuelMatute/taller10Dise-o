@@ -56,7 +56,17 @@ public class OperationsTest {
         assertNotEquals(formula1, formula2, "Las fórmulas generadas no deben ser iguales.");
     }
     
-    
+
+
+    @Test
+    @DisplayName("Test suma básica con números naturales")
+    void testSolveBasicAddition() {
+        assertEquals("1+2= 3", Operations.Solve("1+2"));
+        assertEquals("10+20=30", Operations.Solve("10+20"));
+    }
+
+
+
     public OperationsTest() {
     }
 
