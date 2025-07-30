@@ -3,18 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package calculatorsmp;
+package stack.taller10;
 import java.util.Stack;
 /**
  *
  * @author Djurado
  */
 public class Operations {
-
-    private static String[] op = { "+", "-", "*", "/" };// Operation set
-
-    public static String MakeFormula(){
-        System.out.println("git modify");
+    private static String[] op = { "+", "-", "*", "/" };// Operation set inicializado
+    public static String MakeFormula(){ //corregido para pruebas
+        //System.out.println("git modify");
+        
         StringBuilder build = new StringBuilder();
         int count = (int) (Math.random() * 2) + 1; // generate random count
         int start = 0;
