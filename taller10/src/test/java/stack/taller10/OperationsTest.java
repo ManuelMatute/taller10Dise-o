@@ -56,7 +56,7 @@ public class OperationsTest {
         assertNotEquals(formula1, formula2, "Las fórmulas generadas no deben ser iguales.");
     }
     
-
+//TESTS PARA EL METODO SOLVE
 
     @Test
     @DisplayName("Test suma básica con números naturales")
@@ -125,7 +125,13 @@ public class OperationsTest {
         String result = Operations.Solve("0+5");
         assertEquals("0+5=5", result);
     }
-
+@Test
+    @DisplayName("Comprobar que no hayan espacio entre los operadores")
+    void testSolveConEspacios() {
+        String formula = " 3 + 5 * 2 ";
+        String result = Operations.Solve(formula);
+        assertEquals("3+5*2=13", result, "El resultado con espacios no es correcto.");
+    }
 
     public OperationsTest() {
     }
