@@ -100,6 +100,13 @@ public class OperationsTest {
         assertFalse(resultado.contains("="), "Una fórmula vacía no debería devolver ningún resultado");
     }
 
+    @Test
+    @DisplayName("división por cero (ArithmeticException)")
+    void testSolveDivisionByZero() {
+        assertThrows(ArithmeticException.class, () -> Operations.Solve("10/0"),
+            "Salida: ArithmeticException.");
+    }    
+
 
     public OperationsTest() {
     }
