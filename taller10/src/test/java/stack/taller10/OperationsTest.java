@@ -105,7 +105,26 @@ public class OperationsTest {
     void testSolveDivisionByZero() {
         assertThrows(ArithmeticException.class, () -> Operations.Solve("10/0"),
             "Salida: ArithmeticException.");
-    }    
+    } 
+        @Test
+    @DisplayName("Resolver fórmula simple de multiplicación")
+    public void testSolveMultiplication() {
+        String result = Operations.Solve("6*3");
+        assertEquals("6*3=18", result);
+    }
+    @Test
+    @DisplayName("Resolver fórmula con división por uno")
+    public void testSolveDivideByOne() {
+        String result = Operations.Solve("9/1");
+        assertEquals("9/1=9", result);
+    }
+
+    @Test
+    @DisplayName("Resolver fórmula con cero como operando (no divisor)")
+    public void testSolveWithZeroOperand() {
+        String result = Operations.Solve("0+5");
+        assertEquals("0+5=5", result);
+    }
 
 
     public OperationsTest() {
