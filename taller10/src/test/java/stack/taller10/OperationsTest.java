@@ -73,6 +73,33 @@ public class OperationsTest {
         assertEquals("20-10=10", Operations.Solve("20-10"));
     }
 
+        @Test
+    @DisplayName("Testeando cuando la ecuacion tiene una operacion inicial")
+    void testFormulaConOperadorInicial() {
+        String formula = "+10+5";
+        String resultado = Operations.Solve(formula);
+        // Debería fallar ya que empieza con operador
+        assertFalse(resultado.matches(".*=\\d+"), "No debería aceptar fórmulas que comienzan con operador");
+    }
+
+    @Test
+    @DisplayName("Testeando cuando la ecuacion tiene una operacion diplicada")
+    void testFormulaConOperadoresSeguidos() {
+        String formula = "10++5";
+        String resultado = Operations.Solve(formula);
+        // Debe fallar porque hay dos operadores seguidos
+        assertFalse(resultado.matches(".*=\\d+"), "No debería producir un resultado válido con '10++5'");
+    }
+
+    @Test
+    @DisplayName("Testeando cuando la ecuacion tiene una operacion vacia")
+    void testFormulaVacia() {
+        String formula = "";
+        String resultado = Operations.Solve(formula);
+        // Esperamos que no sea resoluble
+        assertFalse(resultado.contains("="), "Una fórmula vacía no debería devolver ningún resultado");
+    }
+
 
     public OperationsTest() {
     }
