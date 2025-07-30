@@ -66,6 +66,13 @@ public class OperationsTest {
     }
 
 
+    @Test
+    @DisplayName("Test resta básica con números naturales")
+    void testSolveBasicSubtraction() {
+        assertEquals("5-2=3", Operations.Solve("5-2"));
+        assertEquals("20-10=10", Operations.Solve("20-10"));
+    }
+
 
     public OperationsTest() {
     }
